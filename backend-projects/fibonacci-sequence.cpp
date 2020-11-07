@@ -1,26 +1,39 @@
 #include <iostream>
 using namespace std;
-// Testing
+
+#define ll long long
+
 int main()
 {
-  long long n, a[1000], i = 1, last_number, z = 1, temp;
-  cout << "Enter a Number: ";
-  cin >> n;
-  cout << endl;
+  ll a = 1, b = 2, c[1001], temp, i = 0, sum = 0;
 
-  a[0] = 0;
-  last_number = 0;
+  cout << a << " " << b << " ";
 
-  while(i <= n)
+  // c[0] = a;
+  // c[1] = b;
+  // i = 2;
+
+  while(i < 1000)// && c[i] < 4000000)
   {
-    temp = i;
-    cout << last_number + i << " ";
-    temp += last_number;
-    last_number = i;
-    i = temp;
+    c[i] = a + b;
+    a = b;
+    b = c[i];
+    // if(c[i] % 2 == 0)
+    // {
+    //   c[i] = 0;
+    // }
+
+    i++;
   }
 
-  for(int i = 0; i < z; i++) {
-    cout << a[z] << " ";
+  for(int i = 0; i < 1000; i++)
+  {
+    cout << c[i] << " ";
+    // if(c[i] % 2 == 0)
+    // {
+    //   sum += c[i];
+    // }
   }
+
+  cout << sum;
 }
