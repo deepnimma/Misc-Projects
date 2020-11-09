@@ -1,3 +1,4 @@
+# Written By Deepesh Nimma
 n = int(input())
 
 while n != 1:
