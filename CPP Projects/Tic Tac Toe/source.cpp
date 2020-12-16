@@ -4,6 +4,7 @@ using namespace std;
 string a[3][3] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 string checkwhowon();
+bool isarrayfull();
 bool checkHorizontal();
 bool checkVertical();
 bool checkDiagonal();
@@ -18,8 +19,9 @@ int main()
     bool horizontal = checkHorizontal();
     bool diagonal = checkDiagonal();
     bool vertical = checkVertical();
+    bool arrayfull = isarrayfull();
 
-    while(diagonal == false && vertical == false && horizontal == false)
+    while(diagonal == false && vertical == false && horizontal == false && arrayfull == false)
     {
         system("CLS");
         int x;
@@ -215,11 +217,14 @@ int main()
         horizontal = checkHorizontal();
         diagonal = checkDiagonal();
         vertical = checkVertical();
+        arrayfull = isarrayfull();
 
     }
 
     system("CLS");
     displayGrid(b, c, d, e, f, g, h, i, j);
+    cout << checkwhowon() << endl;
+    return 0;
 }
 
 void displayGrid(string a, string b, string c, string d, string e, string f, string g, string h, string i)
@@ -242,6 +247,7 @@ bool checkHorizontal()
     // 00 01 02
     // 10 11 12
     // 20 21 22
+
     if(a[0][0] == a[0][1] && a[0][1] == a[0][2] && a[0][2] == a[0][0])
     {
         return true;
@@ -295,11 +301,25 @@ bool checkVertical()
     return false;
 }
 
+bool isarrayfull()
+{
+    if(a[0][0] != "1" && a[0][1] != "2" && a[0][2] == "3" && a[1][0] != "4" && a[1][1] != "5" && a[1][2] != "6" && a[2][0] != "7" && a[2][1] != "8" && a[2][2] != "9")
+    {
+        return true;
+    }
+
+    return false;
+}
+
 string checkwhowon()
 {
     // 00 01 02
     // 10 11 12
     // 20 21 22
+    if(isarrayfull() == true)
+    {
+        return "No Winner, Tie";
+    }
 
     if(a[0][0] == a[0][1] && a[0][1] == a[0][2] && a[0][2] == a[0][0])
     {
@@ -401,4 +421,6 @@ string checkwhowon()
             return "Player 2 (O) Wins!!!!";
         }
     }
+
+    return "No Winner!";
 }
