@@ -21,7 +21,7 @@ int main()
     bool vertical = checkVertical();
     bool arrayfull = isarrayfull();
 
-    while(diagonal == false && vertical == false && horizontal == false && arrayfull == false)
+    while(diagonal == false && vertical == false && horizontal == false && isarrayfull() == false)
     {
         system("CLS");
         int x;
@@ -303,7 +303,7 @@ bool checkVertical()
 
 bool isarrayfull()
 {
-    if(a[0][0] != "1" && a[0][1] != "2" && a[0][2] == "3" && a[1][0] != "4" && a[1][1] != "5" && a[1][2] != "6" && a[2][0] != "7" && a[2][1] != "8" && a[2][2] != "9")
+    if(a[0][0] != "1" && a[0][1] != "2" && a[0][2] != "3" && a[1][0] != "4" && a[1][1] != "5" && a[1][2] != "6" && a[2][0] != "7" && a[2][1] != "8" && a[2][2] != "9")
     {
         return true;
     }
