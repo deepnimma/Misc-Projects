@@ -1,15 +1,34 @@
 from PyPDF2 import PdfFileMerger
 
 volumes = 0
+starting_volume = 0
 
 volumes = int(input('Enter Number of Volumes: '))
+start_pages = []
+end_pages = []
+
+starting_volume = int(input('Enter Starting Volume Number: '))
+
+for current_volume in range(0, volumes):
+    start_page = 0
+    end_page = 0
+
+    start_page = int(input('Enter Start Page of Volume %s: ' % (current_volume + 1)))
+    end_page = int(input('Enter End Page of Volume %s: ' % (current_volume + 1)))
+    print('\n')
+
+    start_pages.append(start_page)
+    end_pages.append(end_page)    
+
+    # start_pages += str(start_page)
+    # end_pages += str(end_page)
 
 for current_volume in range(0, volumes):
     chapters = []
     chapter_file_name = []
 
-    beginning_chapter = 1
-    ending_chapter = int(input('Enter Ending Chapter for Volume %d: ' % (current_volume + 1)))
+    beginning_chapter = start_pages[current_volume]
+    ending_chapter = end_pages[current_volume]
 
     for i in range(beginning_chapter, ending_chapter + 1):
         chapters.append(i)
@@ -24,7 +43,8 @@ for current_volume in range(0, volumes):
         merger.append(pdf)
         print('%s added...' % (pdf))
 
-    final_file_name = 'Volume ' + str(current_volume + 1) + '.pdf'
+    final_file_name = 'Volume ' + str(starting_volume) + '.pdf'
+    starting_volume += 1
 
     merger.write(final_file_name)
     merger.close()
