@@ -1,3 +1,3 @@
-## Repo for Smaller Projects I do for Practice
+## Repository for Smaller Projects I do for Practice
 
 ### -Deepesh Nimma
